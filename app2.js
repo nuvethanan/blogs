@@ -3,9 +3,9 @@ const app = express();
 const mongoose = require('mongoose');
 const blogRoutes = require('./routes/blogRoutes');
 
-const dbURI = 'mongodb+srv://mike:Nuve1312@nodeDB.ckn3m.mongodb.net/node-DB?retryWrites=true&w=majority';
+const dbURI = 'mongodb+srv://mike:1234@nodeDB.ckn3m.mongodb.net/node-DB?retryWrites=true&w=majority';
 mongoose.connect(dbURI).then((result)=>app.listen('3000')).catch((err)=>console.log(err));
-app.set('view engine','ejs');
+app.set('view engine','ejs'); 
 app.use(express.urlencoded({extended:true}));
 app.use(express.static('public'));
 
