@@ -3,8 +3,14 @@ const app = express();
 const mongoose = require('mongoose');
 const blogRoutes = require('./routes/blogRoutes');
 
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
+app.listen(port);
+
 const dbURI = 'mongodb+srv://mike:1234@nodeDB.ckn3m.mongodb.net/node-DB?retryWrites=true&w=majority';
-mongoose.connect(dbURI).then((result)=>app.listen('3000')).catch((err)=>console.log(err));
+mongoose.connect(dbURI).then((result)=>app.listen(port)).catch((err)=>console.log(err));
 app.set('view engine','ejs'); 
 app.use(express.urlencoded({extended:true}));
 app.use(express.static('public'));
